@@ -122,7 +122,7 @@ public class KeyHandle implements KeyboardHandler, Runnable {
                 break;
             case KeyboardEvent.KEY_M:
                 colorNum++;
-                if(colorNum > 3){
+                if(colorNum > 8){
                     colorNum = 1;
                 }
                 Cursor.changeColor(colorNum);

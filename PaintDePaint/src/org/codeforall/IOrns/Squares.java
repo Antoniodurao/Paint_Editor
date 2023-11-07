@@ -65,61 +65,21 @@ public class Squares {
 
     public static void changeColor(Rectangle square, Color color) {
         if (color.equals(Color.BLACK)) {
-            if ((int) mapPaint.get(square) != 1) {
-                square.setColor(color);
-                square.fill();
-                mapPaint.replace(square, 1);
-                for (int i = 0; i < paintedArray.length; i++) {
-                    if (paintedArray[i] == null) {
-                        paintedArray[i] = square;
-                    }
-                }
-                for(int i = 0; i < undoArray.length; i++){
-                    if(undoArray[i] != null) {
-                       continue;
-                    }
-                    undoArray[i] = square;
-                    return;
-                }
-            }
+            paintSquare(square, 1, color);
         } else if (color.equals(Color.BLUE)) {
-            if ((int) mapPaint.get(square) != 2) {
-                square.setColor(color);
-                square.fill();
-                mapPaint.replace(square, 2);
-                for (int i = 0; i < paintedArray.length; i++) {
-                    if (paintedArray[i] == null) {
-                        paintedArray[i] = square;
-                    }
-                }
-                for( int i = 0; i < undoArray.length; i++){
-                    if (undoArray[i] != null) {
-                        continue;
-                    }
-                    undoArray[i] = square;
-                    return;
-                }
-            }
-
+            paintSquare(square, 2, color);
         } else if (color.equals(Color.RED)) {
-            if ((int) mapPaint.get(square) != 3) {
-                square.setColor(color);
-                square.fill();
-                mapPaint.replace(square, 3);
-                for (int i = 0; i < paintedArray.length; i++) {
-                    if (paintedArray[i] == null) {
-                        paintedArray[i] = square;
-
-                    }
-                }
-                for(int i = 0; i < undoArray.length; i++){
-                    if(undoArray[i] != null) {
-                        continue;
-                    }
-                    undoArray[i] = square;
-                    return;
-                }
-            }
+            paintSquare(square, 3, color);
+        } else if (color.equals(Color.GREEN)) {
+            paintSquare(square, 4, color);
+        } else if (color.equals(Color.CYAN)) {
+            paintSquare(square, 5, color);
+        } else if (color.equals(Color.DARK_GRAY)) {
+            paintSquare(square, 6, color);
+        } else if (color.equals(Color.LIGHT_GRAY)) {
+            paintSquare(square, 7, color);
+        } else if (color.equals(Color.ORANGE)) {
+            paintSquare(square, 8, color);
         } else {
             square.setColor(Color.BLACK);
             square.draw();
@@ -136,6 +96,24 @@ public class Squares {
                 undoArray[i] = square;
                 return;
             }
+        }
+    }
+
+    private static void paintSquare(Rectangle square, int num, Color color ){
+        square.setColor(color);
+        square.fill();
+        mapPaint.replace(square, num);
+        for (int i = 0; i < paintedArray.length; i++) {
+            if (paintedArray[i] == null) {
+                paintedArray[i] = square;
+            }
+        }
+        for(int i = 0; i < undoArray.length; i++){
+            if(undoArray[i] != null) {
+                continue;
+            }
+            undoArray[i] = square;
+            return;
         }
     }
 
@@ -175,6 +153,16 @@ public class Squares {
                 bufferedWriter.write("2");
             } else if (mapPaint.get(arrRec[i]).equals(3)) {
                 bufferedWriter.write("3");
+            }  else if (mapPaint.get(arrRec[i]).equals(4)) {
+                bufferedWriter.write("4");
+            } else if (mapPaint.get(arrRec[i]).equals(5)) {
+                bufferedWriter.write("5");
+            } else if (mapPaint.get(arrRec[i]).equals(6)) {
+                bufferedWriter.write("6");
+            } else if (mapPaint.get(arrRec[i]).equals(7)) {
+                bufferedWriter.write("7");
+            } else if (mapPaint.get(arrRec[i]).equals(8)) {
+                bufferedWriter.write("8");
             } else if(mapPaint.get(arrRec[i]).equals(0)){
                 bufferedWriter.write("0");
             }
@@ -209,6 +197,26 @@ public class Squares {
             } else if(oneAndZero[i].equals("3")){
                 mapPaint.replace(arrRec[i], 3);
                 arrRec[i].setColor(Color.RED);
+                arrRec[i].fill();
+            } else if(oneAndZero[i].equals("4")){
+                mapPaint.replace(arrRec[i], 4);
+                arrRec[i].setColor(Color.GREEN);
+                arrRec[i].fill();
+            }else if(oneAndZero[i].equals("5")){
+                mapPaint.replace(arrRec[i], 5);
+                arrRec[i].setColor(Color.CYAN);
+                arrRec[i].fill();
+            }else if(oneAndZero[i].equals("6")){
+                mapPaint.replace(arrRec[i], 6);
+                arrRec[i].setColor(Color.DARK_GRAY);
+                arrRec[i].fill();
+            }else if(oneAndZero[i].equals("7")){
+                mapPaint.replace(arrRec[i], 7);
+                arrRec[i].setColor(Color.LIGHT_GRAY);
+                arrRec[i].fill();
+            }else if(oneAndZero[i].equals("8")){
+                mapPaint.replace(arrRec[i], 8);
+                arrRec[i].setColor(Color.ORANGE);
                 arrRec[i].fill();
             } else{
                 mapPaint.replace(arrRec[i], 0);

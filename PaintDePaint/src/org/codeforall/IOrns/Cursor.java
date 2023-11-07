@@ -40,6 +40,26 @@ public class Cursor extends Rectangle {
                 Cursor.color = Color.RED;
                 playerSetColor();
                 break;
+            case 4:
+                Cursor.color = Color.GREEN;
+                playerSetColor();
+                break;
+            case 5:
+                Cursor.color = Color.CYAN;
+                playerSetColor();
+                break;
+            case 6:
+                Cursor.color = Color.DARK_GRAY;
+                playerSetColor();
+                break;
+            case 7:
+                Cursor.color = Color.LIGHT_GRAY;
+                playerSetColor();
+                break;
+            case 8:
+                Cursor.color = Color.ORANGE;
+                playerSetColor();
+                break;
         }
     }
 
