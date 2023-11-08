@@ -5,14 +5,36 @@ To condense my knowledge of Java and it's many facets, like:
   -Inheritance;
 
   -Encapsulation;
-
+  
   -Working with Input Mechanics;
-
+  
   -Input&Output Streams;
+********
 
 How the application works: 
 
-A map grid, 500 by 500, where your selected square moves and can paint the corresponding square;
-You move with WASD, and paint with The space SPACE key, you can change color with the M key;
-If you make a mistake, you can Undo with the U key, and clear all with BACKSPACE key;
-But if you want to save your hard work, you can with C key and reload with the ENTER key;
+A map grid, 500 by 500, where your selected square moves and can paint the the other squares on the grid, yeah I know, pretty simple 
+********
+Inputs:
+- W : up ;
+- A - left ;
+- S - down ;
+- D - right ;
+- M - change color ;
+- U - undo ;
+- C - save current grid (can't undo them after saving) ;
+- \ - clear all ;
+- ENTER - load previous save ;
+*******
+Available Colors:
+- Black ⬛;
+- Blue 🟦;
+- Red 🟥;
+- Cyan ;
+- Green 🟩;
+- Dark Grey ;
+- Light Grey;
+- Orange 🟧;
+
+
+
