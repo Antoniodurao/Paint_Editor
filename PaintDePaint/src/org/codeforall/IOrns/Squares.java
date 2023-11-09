@@ -12,15 +12,19 @@ public class Squares {
     private int Y = 10;
     private static boolean painted = false;
 
-
+    private Grid grid;
     private static HashMap mapX = new HashMap<>();
     private static HashMap mapY = new HashMap<>();
     private static HashMap mapPaint = new HashMap<>();
-    private static Rectangle[] arrRec = new Rectangle[577];
-    private static Rectangle[] paintedArray = new Rectangle[577];
-    private static Rectangle[] undoArray = new Rectangle[577];
+    private static Rectangle[] arrRec = new Rectangle[625];
+    private static Rectangle[] paintedArray = new Rectangle[625];
+    private static Rectangle[] undoArray = new Rectangle[625];
 
-    public void tryIt() {
+    public void tryIt(Grid grid) {
+        this.grid = grid;
+        arrRec = new Rectangle[grid.getNumOfSquares()];
+        paintedArray = new Rectangle[grid.getNumOfSquares()];
+        undoArray = new Rectangle[grid.getNumOfSquares()];
         for (int i = 0; i < arrRec.length; i++) {
             if (checkTheBordersX()) {
                 X = 10;
@@ -41,17 +45,11 @@ public class Squares {
     }
 
     private boolean checkTheBordersX() {
-        if (X > 480) {
-            return true;
-        }
-        return false;
+        return X > grid.getHeight();
     }
 
     private boolean checkTheBordersY() {
-        if (Y > 480) {
-            return true;
-        }
-        return false;
+        return Y > grid.getWidth();
     }
 
     public static Rectangle getSquare(int X, int Y) {

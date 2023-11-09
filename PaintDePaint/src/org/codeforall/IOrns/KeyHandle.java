@@ -12,8 +12,12 @@ import java.io.IOException;
 public class KeyHandle implements KeyboardHandler, Runnable {
 
 
-    Grid grid = new Grid();
-    private int colorNum= 1;
+    private Grid grid;
+    private int colorNum = 1;
+
+    KeyHandle(Grid grid) {
+        this.grid = grid;
+    }
 
     public void init() {
         Keyboard kb = new Keyboard(this);
@@ -122,7 +126,7 @@ public class KeyHandle implements KeyboardHandler, Runnable {
                 break;
             case KeyboardEvent.KEY_M:
                 colorNum++;
-                if(colorNum > 8){
+                if (colorNum > 8) {
                     colorNum = 1;
                 }
                 Cursor.changeColor(colorNum);
